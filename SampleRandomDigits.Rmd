@@ -7,8 +7,6 @@ output:
   slidy_presentation: default
 #    pdf_document
 
-
-
 ---
 ```{r setup, include=FALSE}
 library(knitr)
@@ -44,7 +42,6 @@ Can you guess which one is random and which human-generated?
 
 1: 01001010010101010101101010101001011010111101010101 <br>
 2: 10000000000111110010000100100010001110110011011010
-
 
 
 Let's write a function generating random digits: 
