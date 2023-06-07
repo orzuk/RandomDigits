@@ -1,0 +1,61 @@
+---
+title: 'Sampling Random Digits'
+# author: ""
+output:
+#  html_document:
+#    df_print: paged
+  slidy_presentation: default
+#    pdf_document
+
+
+
+---
+```{r setup, include=FALSE}
+library(knitr)
+
+# Set knitr options for knitting code into the report:
+# - Don't print out code (echo)
+# - Save results so that code blocks aren't re-run unless code changes (cache),
+# _or_ a relevant earlier code block changed (autodep), but don't re-run if the
+# only thing that changed was the comments (cache.comments)
+# - Don't clutter R output with messages or warnings (message, warning)
+  # This _will_ leave error messages showing up in the knitted report
+opts_chunk$set(echo=TRUE,
+               cache=TRUE, autodep=TRUE, cache.comments=FALSE,
+               message=FALSE, warning=FALSE)
+
+library("MASS")
+library('mvtnorm')
+library("ggplot2")
+library("dplyr")
+```
+
+
+
+Learning about distributions via sampling
+====
+
+**Experiment:** try to create Bernoulli(0.5) sequences
+
+- **One method:** sample a sequence of 50 digits randomly
+- **Another method:** type sequence manually and try to make it as 'random' as possible without sampling 
+
+Can you guess which one is random and which human-generated?
+
+1: 01001010010101010101101010101001011010111101010101 <br>
+2: 10000000000111110010000100100010001110110011011010
+
+
+
+Let's write a function generating random digits: 
+
+
+```{r}
+print_rand_digits = function(n, base=2)
+{
+  print(paste(as.character(rbinom(n,base-1,0.5)), collapse=""))
+}
+
+print_rand_digits(50)
+```
+
